@@ -1,0 +1,9 @@
+.popup__input_userjob{
+    margin-bottom: 45px;
+}
+
+@media screen and (min-width: 768px) {
+    .popup__input_userjob{
+        margin-bottom: 48px;
+    }
+}

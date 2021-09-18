@@ -1,0 +1,8 @@
+.button__edit{
+    width: 18px;
+    height: 18px;
+    padding: 0;
+    display: flex;
+    align-self: center;
+    justify-content: center;
+}

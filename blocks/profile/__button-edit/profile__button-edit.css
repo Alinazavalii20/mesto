@@ -1,0 +1,15 @@
+.profile__button-edit{
+    width: 18px;
+    height: 18px;
+    padding: 0;
+    display: flex;
+    align-self: center;
+    justify-content: center;
+}
+
+@media screen and (min-width: 768px) {
+    .profile__button-edit{
+        width: 20px;
+        height: 20px;
+    } 
+}

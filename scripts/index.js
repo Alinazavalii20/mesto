@@ -9,8 +9,6 @@ let jobInput = popup.querySelector('.popup__input_userjob');
 let nameProfile = document.querySelector('.profile__name');
 let subtitleProfile = document.querySelector('.profile__subtitle');
 
-console.log(form)
-
 function popupOpen() {
   popup.classList.add('popup__opened');
   nameInput.value = nameProfile.textContent;

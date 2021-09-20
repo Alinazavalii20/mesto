@@ -4,16 +4,23 @@
     font-size: 14px;
     line-height: 17px;
     width: 238px;
-    margin: 0 22px;
+    margin: 0 22px 30px;
     border: none;
     padding: 0 0 13px;
     border-bottom: 1px solid rgba(0, 0, 0, .2);
     color: black;
 }
 
+.popup__input:last-child{
+    margin-bottom: 45px;
+}
+
 @media screen and (min-width: 768px) {
     .popup__input{
         width: 358px;
-        margin: 0 36px;
+        margin-left: 36px;
+    }
+    .popup__input:last-child{
+        margin-bottom: 48px;
     }
 }

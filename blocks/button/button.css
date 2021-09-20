@@ -4,7 +4,3 @@
     justify-content: center;
     cursor: pointer;
 }
-
-.button:hover{
-    opacity: .7;
-}

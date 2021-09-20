@@ -1,6 +1,6 @@
 .element{
     width: 281px;
-    height: 361px;
+    min-height: 361px;
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;

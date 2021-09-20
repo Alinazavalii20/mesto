@@ -10,10 +10,9 @@
 
 <body>
   <div class="page">
-    <section class="header">
+    <header class="header">
       <img class="logo header__logo" src="./image/logo.svg" alt="Город.Россия">
-      <hr class="header__line">
-    </section>
+    </header>
 
     <main class="content">
       <section class="profile">
@@ -22,7 +21,7 @@
           <h1 class="profile__name">Жак-Ив Кусто</h1>
           <p class="profile__subtitle">Исследователь океана</p>
           <button type="button" class="button profile__button-edit">
-            <img src="./image/Vector__profile.png" alt="Изменить" class="profile__edit">
+            <img src="./image/Vector__edit.svg" alt="Изменить" class="profile__edit">
           </button>
         </div>
         <button class="button profile__button-plus" type="button">
@@ -35,38 +34,37 @@
         <div class="element">
           <img src="./image/element_1.jpg" alt="Карачаевск" class="element__image">
           <h2 class="element__title">Карачаевск</h2>
-          <input type="image" name="image" src="./image/Vector__like.png" alt="лайк" class="button element__button-like">
-                   
+          <button type="image" name="image" class="button element__button-like"></button>        
         </div>
 
         <div class="element">
           <img src="./image/element_2.jpg" alt="Гора Эльбрус" class="element__image">
           <h2 class="element__title">Гора Эльбрус</h2>
-          <input type="image" name="image" src="./image/Vector__like.png" alt="лайк" class="button element__button-like">
+          <button type="image" name="image" class="button element__button-like"></button>
         </div>
 
         <div class="element">
           <img src="./image/element_3.jpg" alt="Домбай" class="element__image">
           <h2 class="element__title">Домбай</h2>
-          <input type="image" name="image" src="./image/Vector__like.png" alt="лайк" class="button element__button-like">
+          <button type="image" name="image" class="button element__button-like"></button>
         </div>
 
         <div class="element">
           <img src="./image/element_4.jpg" alt="Алтай" class="element__image">
           <h2 class="element__title">Алтай</h2>
-          <input type="image" name="image" src="./image/Vector__like.png" alt="лайк" class="button element__button-like">
+          <button type="image" name="image" class="button element__button-like"></button>
         </div>
 
         <div class="element">
           <img src="./image/element_5.jpg" alt="Камчатка" class="element__image">
           <h2 class="element__title">Камчатка</h2>
-          <input type="image" name="image" src="./image/Vector__like.png" alt="лайк" class="button element__button-like">
+          <button type="image" name="image" class="button element__button-like"></button>
         </div>
 
         <div class="element">
           <img src="./image/element_6.jpg" alt="Байкал" class="element__image">
           <h2 class="element__title">Байкал</h2>
-          <input type="image" name="image" src="./image/Vector__like.png" alt="лайк" class="button element__button-like">
+          <button type="image" name="image" class="button element__button-like"></button>
         </div>
 
       </section>
@@ -78,13 +76,13 @@
 
     <section class="popup">
       <div class="popup__container">
-        <img src="./image/Close_Icon.png" alt="Закрыть" class="popup__close">
+        <button alt="Закрыть" class="popup__close"></button>
         <form class="popup__form" name="form">
         <div class="popup__content">
           <h2 class="popup__edit">Редактировать профиль</h2>
           <div class="popup__profile">
-            <input type="text" name="username" class="popup__input popup__input_username" placeholder="Жак-Ив Кусто">
-            <input type="text" name="userjob" class="popup__input popup__input_userjob" placeholder="Исследователь океана">
+            <input type="text" name="username" class="popup__input" placeholder="Ваше имя">
+            <input type="text" name="userjob" class="popup__input" placeholder="Ваша пофессия">
           </div>
           <button class="popup__save" type="submit" name="submit">
             Сохранить

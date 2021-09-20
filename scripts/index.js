@@ -11,13 +11,13 @@ let subtitleProfile = document.querySelector('.profile__subtitle');
 
 
 function popupOpen() {
-  popup.classList.add('popup__opened');
+  popup.classList.add('popup_opened');
   nameInput.value = nameProfile.textContent;
   jobInput.value = subtitleProfile.textContent;
 }
 
 function popupClose() {
-  popup.classList.remove('popup__opened');
+  popup.classList.remove('popup_opened');
 }
 
 function formSubmitHandler(evt) {

@@ -16,7 +16,7 @@
 }
 
 .popup__save:hover{
-   background-color: rgba(0, 0, 0, .6); 
+   background-color: rgba(0, 0, 0, .8); 
 }
 
 @media screen and (min-width: 768px) {

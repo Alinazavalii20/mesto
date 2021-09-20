@@ -4,6 +4,10 @@
     justify-content: center;
 }
 
+.profile__button-plus:hover{
+    opacity: .6;
+}
+
 @media screen and (min-width: 768px) {
     .profile__button-plus{
         width: 150px;

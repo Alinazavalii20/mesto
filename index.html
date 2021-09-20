@@ -4,7 +4,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="./pages/index.css">
+  <link rel="stylesheet" href="pages/index.css">
   <title>Mesto</title>
 </head>
 
@@ -20,13 +20,9 @@
         <div class="profile__intro">
           <h1 class="profile__name">Жак-Ив Кусто</h1>
           <p class="profile__subtitle">Исследователь океана</p>
-          <button type="button" class="button profile__button-edit">
-            <img src="./image/Vector__edit.svg" alt="Изменить" class="profile__edit">
-          </button>
+          <button type="button" class="button profile__button-edit"></button>
         </div>
-        <button class="button profile__button-plus" type="button">
-            <img src="./image/Vector__plus.svg" alt="Добавить" class="profile__plus">
-        </button>
+        <button class="button profile__button-plus" type="button"></button>
 
       </section>
 
@@ -81,8 +77,8 @@
         <div class="popup__content">
           <h2 class="popup__edit">Редактировать профиль</h2>
           <div class="popup__profile">
-            <input type="text" name="username" class="popup__input" placeholder="Ваше имя">
-            <input type="text" name="userjob" class="popup__input" placeholder="Ваша пофессия">
+            <input type="text" name="username" class="popup__input popup__input_username" placeholder="Ваше имя">
+            <input type="text" name="userjob" class="popup__input popup__input_userjob" placeholder="Ваша пофессия">
           </div>
           <button class="popup__save" type="submit" name="submit">
             Сохранить

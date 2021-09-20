@@ -18,7 +18,7 @@
 
 @media screen and (min-width: 1280px) {
     .page{
-        margin: 0 auto;
+        margin: auto;
         padding: 45px 200px 60px;
     }   
 }

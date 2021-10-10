@@ -17,7 +17,7 @@ const cardForm = cardPopup.querySelector('.popup__form');
 const placeInput = cardPopup.querySelector('.popup__input_type_place');
 const linkInput = cardPopup.querySelector('.popup__input_type_link');
 
-//просмотр фото
+
 
 
 
@@ -116,12 +116,7 @@ function profileSubmitHandler(evt) {
 }
 
 //открытие фото
-//function openPhoto(evt) {
-  //photoPopupTitle.textContent = evt.currentTarget;
-  //photoPopupImg.src = link;
-  //photoPopupImg.alt = alt;
-  //popupOpen(photoPopup);
-//}
+
 
 const photoPopup = document.querySelector('.popup_type_image');
 const photoPopupOpenBtn = document.querySelectorAll('.element')
@@ -162,4 +157,4 @@ cardPopupOpenBtn.addEventListener('click', () => popupOpen(cardPopup));
 cardPopupCloseBtn.addEventListener('click', () => popupClose(cardPopup));
 cardForm.addEventListener('submit', addCardSubmitHandler);
 
-//photoPopupCloseBtn.addEventListener('click', () => popupClose(photoPopup));
+

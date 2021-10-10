@@ -27,42 +27,7 @@
       </section>
 
       <section class="elements">
-        <div class="element">
-          <img src="./image/element_1.jpg" alt="Карачаевск" class="element__image">
-          <h2 class="element__title">Карачаевск</h2>
-          <button type="button" name="image" class="button element__button-like"></button>        
-        </div>
-
-        <div class="element">
-          <img src="./image/element_2.jpg" alt="Гора Эльбрус" class="element__image">
-          <h2 class="element__title">Гора Эльбрус</h2>
-          <button type="button" name="image" class="button element__button-like"></button>
-        </div>
-
-        <div class="element">
-          <img src="./image/element_3.jpg" alt="Домбай" class="element__image">
-          <h2 class="element__title">Домбай</h2>
-          <button type="button" name="image" class="button element__button-like"></button>
-        </div>
-
-        <div class="element">
-          <img src="./image/element_4.jpg" alt="Алтай" class="element__image">
-          <h2 class="element__title">Алтай</h2>
-          <button type="button" name="image" class="button element__button-like"></button>
-        </div>
-
-        <div class="element">
-          <img src="./image/element_5.jpg" alt="Камчатка" class="element__image">
-          <h2 class="element__title">Камчатка</h2>
-          <button type="button" name="image" class="button element__button-like"></button>
-        </div>
-
-        <div class="element">
-          <img src="./image/element_6.jpg" alt="Байкал" class="element__image">
-          <h2 class="element__title">Байкал</h2>
-          <button type="button" name="image" class="button element__button-like"></button>
-        </div>
-
+        
       </section>
     </main>
 
@@ -70,7 +35,7 @@
       <p class="footer__subtitle">&copy;&nbsp;2021 Mesto Russia</p>
     </footer>
 
-    <section class="popup">
+    <section class="popup popup_type_profile">
       <div class="popup__container">
         <button class="popup__close"></button>
         <form class="popup__form" name="form">
@@ -87,7 +52,46 @@
       </form>
       </div>
     </section>
+
+    <section class="popup popup_type_card">
+      <div class="popup__container">
+        <button class="popup__close"></button>
+        <form class="popup__form" name="form">
+        <div class="popup__content">
+          <h2 class="popup__edit">Новое место</h2>
+          <div class="popup__profile">
+            <input type="text" name="place" class="popup__input popup__input_type_place" placeholder="Название">
+            <input type="text" name="link" class="popup__input popup__input_type_link" placeholder="Ссылка на картинку">
+          </div>
+          <button class="popup__save" type="submit" name="submit">
+            Сохранить
+          </button>
+        </div>
+      </form>
+      </div>
+    </section>
+
+    <section class="popup popup_type_image">
+      <div class="popup__container popup__container_type_img">
+        <figure class="figure">
+          <img src="#" class="popup__image" alt="">
+          <button type="button" class="popup__close"></button>
+          <figcaption><p class="popup__title"></p></figcaption>
+        </figure>
+      </div>
+    </div>
+  </section>
   </div>
-<script src="./scripts/index.js"></script>
+
+    <template class="element-temple">
+     <div class="element">
+      <img src="#" class="element__image">
+      <button type="button" name="image" class="button element__bitton-delet"></button>
+      <h2 class="element__title"></h2>
+      <button type="button" name="image" class="button element__button-like"></button>        
+    </div>
+  </template>
+
+<script src="scripts/index.js"></script>
 </body>
 </html>

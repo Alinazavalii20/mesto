@@ -17,9 +17,11 @@ const cardForm = cardPopup.querySelector('.popup__form');
 const placeInput = cardPopup.querySelector('.popup__input_type_place');
 const linkInput = cardPopup.querySelector('.popup__input_type_link');
 
-
-
-
+//просмотр фото
+const photoPopup = document.querySelector('.popup_type_image');
+const photoPopupCloseBtn = photoPopup.querySelector('.popup__close');
+const photoPopupImg = photoPopup.querySelector('.popup__image');
+const photoPopupTitle = photoPopup.querySelector('.popup__title');
 
 //галерея
 const elementList = document.querySelector('.elements')
@@ -64,7 +66,8 @@ function createCards(initialCards) {
   newCard.querySelector('.element__button-like').addEventListener('click', likeToggle);
   newCard.querySelector(".element__bitton-delet").addEventListener('click', deleteCard);
   elementList.prepend(newCard);
-  return newCard; 
+  newCardImg.addEventListener("click", () => openPhoto(newCardTitle.textContent, newCardImg.src, newCardImg.alt));
+  return newCard;  
 }
 
 //заполнение карточками
@@ -73,7 +76,6 @@ initialCards.forEach(createCards);
 function createAndAddCardToGalery(initialCards){
   const newCard = createCards(initialCards);
   addCardToGalery(newCard)
-  photoPopupOpenBt.addEventListener('click', () => popupOpen(openPhoto))
 }
 
 function addCardSubmitHandler(evt){
@@ -86,8 +88,7 @@ function addCardSubmitHandler(evt){
   initialCards.forEach(createCards);
   placeInput.value = "";
   linkInput.value = "";
-  popupClose(cardPopup);
-  
+  popupClose(cardPopup); 
 }
 
 // Открытие попапа 
@@ -115,25 +116,13 @@ function profileSubmitHandler(evt) {
   popupClose(profilePopup);
 }
 
-//открытие фото
-
-
-const photoPopup = document.querySelector('.popup_type_image');
-const photoPopupOpenBtn = document.querySelectorAll('.element')
-const photoPopupCloseBtn = photoPopup.querySelector('.popup__close');
-const photoPopupImg = photoPopup.querySelector('.popup__image');
-const photoPopupTitle = photoPopup.querySelector('.popup__title');
-
 // Открытие фотографии для просмотра
-function openPhoto(evt) {
-  photoPopupTitle.textContent = evt.currentTarget;
+function openPhoto(name, link, alt) {
+  photoPopupTitle.textContent = name;
   photoPopupImg.src = link;
+  photoPopupImg.alt = alt;
   popupOpen(photoPopup);
 }
-
-photoPopupCloseBtn.addEventListener("click", () => popupClose(photoPopup));
-
-
 
 //лайк
 function likeToggle(evt) {
@@ -157,4 +146,5 @@ cardPopupOpenBtn.addEventListener('click', () => popupOpen(cardPopup));
 cardPopupCloseBtn.addEventListener('click', () => popupClose(cardPopup));
 cardForm.addEventListener('submit', addCardSubmitHandler);
 
-
+//закрытие попапа с фото
+photoPopupCloseBtn.addEventListener("click", () => popupClose(photoPopup));

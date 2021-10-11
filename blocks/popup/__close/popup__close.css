@@ -8,11 +8,10 @@
     padding: 0;
     border: none;
     top: 87px;
-    right: 20px;
+    right: 0;
     width: 20px;
     height: 20px;
     cursor: pointer;
-
 }
 
 .popup__close:hover{

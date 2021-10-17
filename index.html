@@ -42,8 +42,14 @@
         <div class="popup__content">
           <h2 class="popup__edit">Редактировать профиль</h2>
           <div class="popup__profile">
-            <input type="text" name="username" class="popup__input popup__input_type_username" placeholder="Ваше имя">
-            <input type="text" name="userjob" class="popup__input popup__input_type_userjob" placeholder="Ваша пофессия">
+            <input type="text" name="username" id="username-input" minlength="2" maxlength="40" required
+            class="popup__input popup__input_type_username" 
+            placeholder="Ваше имя">
+            <span class="popup__input-error username-input-error"></span>
+            <input type="text" name="userjob" id="userjob-input" minlength="2" maxlength="200" required
+            class="popup__input popup__input_type_userjob" 
+            placeholder="Ваша пофессия">
+            <span class="popup__input-error userjob-input-error"></span>
           </div>
           <button class="popup__save" type="submit" name="submit">
             Сохранить
@@ -60,8 +66,14 @@
         <div class="popup__content">
           <h2 class="popup__edit">Новое место</h2>
           <div class="popup__profile">
-            <input type="text" name="place" class="popup__input popup__input_type_place" placeholder="Название">
-            <input type="text" name="link" class="popup__input popup__input_type_link" placeholder="Ссылка на картинку">
+            <input type="text" name="place" minlength="2" maxlength="30" id="place-input" required
+            class="popup__input popup__input_type_place" 
+            placeholder="Название">
+            <span class="popup__input-error place-input-error"></span>
+            <input type="url" name="link" id="link-input" required
+            class="popup__input popup__input_type_link" 
+            placeholder="Ссылка на картинку">
+            <span class="popup__input-error link-input-error"></span>
           </div>
           <button class="popup__save" type="submit" name="submit">
             Сохранить
@@ -90,7 +102,9 @@
       <button type="button" name="image" class="button element__button-like"></button>        
     </div>
   </template>
-
+  
+<script src="./scripts/validate.js"></script>
 <script src="scripts/index.js"></script>
+
 </body>
 </html>

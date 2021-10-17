@@ -188,7 +188,3 @@ cardForm.addEventListener('submit', addCardSubmitHandler);
 
 //закрытие попапа с фото
 photoPopupCloseBtn.addEventListener("click", () => closePopup(photoPopup));
-
-profilePopup.addEventListener("mousedown", closePopupClickOverlay);
-cardPopup.addEventListener("mousedown", closePopupClickOverlay);
-photoPopupImg.addEventListener("mousedown", closePopupClickOverlay);

@@ -97,14 +97,12 @@ function addCardSubmitHandler(evt){
 function openPopup(popupType) {
   popupType.classList.add("popup_opened");
   document.addEventListener("keydown", closePopupEsc);
-  document.addEventListener('click', closePopupkOverlay);
 }
 
 // Закрытие попапа 
 function closePopup(popupType) {
   popupType.classList.remove('popup_opened');
   document.removeEventListener("keydown", closePopupEsc);
-  document.removeEventListener('click', closePopupkOverlay);
 }
 
 // Закрытие попапа (Esc)
@@ -116,11 +114,15 @@ function closePopupEsc(evt){
 }
 
 // Закрытие попапа (Overlay)
-function closePopupkOverlay(evt) {
-  if (evt.target === evt.currentTarget) {
-    closePopup(currentPopup);
+const closePopupClick = () => {
+  document.addEventListener('click', (evt) => {
+    if (evt.target.classList.contains('popup_opened')) {
+      closePopup(evt.target)
   }
+  })
 }
+closePopupClick()
+
 
 //открытие редактора профиля
 function openProfilePopup(){
@@ -188,3 +190,4 @@ cardForm.addEventListener('submit', addCardSubmitHandler);
 
 //закрытие попапа с фото
 photoPopupCloseBtn.addEventListener("click", () => closePopup(photoPopup));
+

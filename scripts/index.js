@@ -28,7 +28,7 @@ const elementList = document.querySelector('.elements')
 const cardTemplate = document.querySelector('.element-temple')
 
 //все попапы
-const popups =Array.from(document.querySelector('.popup'));
+const popups = document.querySelectorAll('.popup')
 
 //загрузка на странице. массив
 const initialCards = [
@@ -89,7 +89,6 @@ function addCardSubmitHandler(evt){
   }
   createAndAddCardToGalery(newCard)
   closePopup(cardPopup);
-  clearForm(cardPopup);
 }
 
 
@@ -115,7 +114,6 @@ function closePopup(popupType) {
 }
 
 // Закрытие попапа (Overlay)
-
 popups.forEach((popup) => {
   popup.addEventListener('click', (evt) => {
     if (evt.target.classList.contains('popup_opened')) {
@@ -123,7 +121,6 @@ popups.forEach((popup) => {
     }
   })
 })
-
 
 
 //открытие редактора профиля
@@ -141,19 +138,6 @@ function profileSubmitHandler(evt) {
   subtitleProfile.textContent = jobInput.value;
   closePopup(profilePopup);
 }
-
-//очистка формы
-function clearForm(currentPopup){
-  const form = currentPopup.querySelector('.popup__form');
-  const inputList = Array.from(form.querySelector('.popup__input'));
-  form.reset();
-  inputList.forEach((input) =>{
-    const inputError = form.querySelector(`.${input.id}-error`);
-    hideInputError(input, inputError, validationConfig);
-  });
-  toggleButtonState(form, inputList, validationConfig);
-}
-
 
 // Открытие фотографии для просмотра
 function openPhoto(name, link, alt) {

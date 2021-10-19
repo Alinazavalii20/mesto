@@ -9,7 +9,3 @@
     position: relative;
     cursor: pointer;
 }
-
-.element:hover{
-    opacity: 0.8;
-}

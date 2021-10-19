@@ -58,15 +58,15 @@ const initialCards = [
   }
 ];
 
-function createCards(initialCards) {
+function createCard(cardData) {
   const newCard = cardTemplate.content.cloneNode(true);
   const newCardTitle = newCard.querySelector('.element__title');
   const newCardImg = newCard.querySelector('.element__image');
-  newCardTitle.textContent = initialCards.name;
-  newCardImg.setAttribute('src', initialCards.link);
-  newCardImg.setAttribute('alt', initialCards.description);
+  newCardTitle.textContent = cardData.name;
+  newCardImg.setAttribute('src', cardData.link);
+  newCardImg.setAttribute('alt', cardData.description);
   newCard.querySelector('.element__button-like').addEventListener('click', likeToggle);
-  newCard.querySelector(".element__bitton-delet").addEventListener('click', deleteCard);
+  newCard.querySelector(".element__button-delet").addEventListener('click', deleteCard);
   newCardImg.addEventListener("click", () => openPhoto(newCardTitle.textContent, newCardImg.src, newCardImg.alt));
   return newCard;  
 }
@@ -75,13 +75,12 @@ function addCardToGalery(element) {
   elementList.prepend(element);
 }
 
-function createAndAddCardToGalery(initialCards){
-  const newCard = createCards(initialCards);
+function createAndAddCardToGalery(cardData){
+  const newCard = createCard(cardData);
   addCardToGalery(newCard)
 }
 
 function addCardSubmitHandler(evt){
-  clearForm(cardPopup);
   evt.preventDefault();
   const newCard ={
     name: placeInput.value,
@@ -89,7 +88,17 @@ function addCardSubmitHandler(evt){
     description: `Фотография места. ${placeInput.value}`,
   }
   createAndAddCardToGalery(newCard)
-  closePopup(cardPopup); 
+  closePopup(cardPopup);
+  clearForm(cardPopup);
+}
+
+
+// Закрытие попапа (Esc)
+function closePopupEsc(evt){
+  if (evt.key === 'Escape'){
+    const currentPopup = document.querySelector('.popup_opened');
+    closePopup(currentPopup);
+  }
 }
 
 
@@ -105,28 +114,20 @@ function closePopup(popupType) {
   document.removeEventListener("keydown", closePopupEsc);
 }
 
-// Закрытие попапа (Esc)
-function closePopupEsc(evt){
-  if (evt.key === 'Escape'){
-    const currentPopup = document.querySelector('.popup_opened');
-    closePopup(currentPopup);
-  }
-}
-
 // Закрытие попапа (Overlay)
-const closePopupClick = () => {
-  document.addEventListener('click', (evt) => {
+
+popups.forEach((popup) => {
+  popup.addEventListener('click', (evt) => {
     if (evt.target.classList.contains('popup_opened')) {
-      closePopup(evt.target)
-  }
+      closePopup(popup)
+    }
   })
-}
-closePopupClick()
+})
+
 
 
 //открытие редактора профиля
 function openProfilePopup(){
-  clearForm(profilePopup);
   nameInput.value = nameProfile.textContent;
   jobInput.value = subtitleProfile.textContent;
   openPopup(profilePopup)
@@ -153,6 +154,7 @@ function clearForm(currentPopup){
   toggleButtonState(form, inputList, validationConfig);
 }
 
+
 // Открытие фотографии для просмотра
 function openPhoto(name, link, alt) {
   photoPopupTitle.textContent = name;
@@ -178,7 +180,7 @@ initialCards.forEach(createAndAddCardToGalery);
 
 //клики
 //редактор
-profilePopupOpenBtn.addEventListener('click', () => openPopup(profilePopup))
+profilePopupOpenBtn.addEventListener('click', () => openProfilePopup(profilePopup))
 profilePopupCloseBtn.addEventListener('click', () => closePopup(profilePopup));
 profileForm.addEventListener('submit', profileSubmitHandler);
 

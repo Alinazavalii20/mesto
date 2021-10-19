@@ -1,4 +1,4 @@
-.element__bitton-delet{
+.element__button-delet{
     background-image: url(../../../image/delete-icon.svg);
     background-repeat: no-repeat;
     background-color: transparent;
@@ -13,6 +13,6 @@
     cursor: pointer;
     }
     
-.element__bitton-delet:hover {
+.element__button-delet:hover {
     opacity: 0.6;
 }

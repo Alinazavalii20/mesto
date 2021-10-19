@@ -1,5 +1,13 @@
 .popup__content{
   display: flex;
   flex-direction: column;
-  justify-content: space-between; 
+  justify-content: space-between;
+  
 }
+
+/*@media screen and (min-width: 768px) {
+    .popup__content{   
+    padding: 34px 36px 37px; 
+    }
+}
+

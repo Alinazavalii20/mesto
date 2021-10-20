@@ -87,7 +87,8 @@ function addCardSubmitHandler(evt){
     link: linkInput.value,
     description: `Фотография места. ${placeInput.value}`,
   }
-  createAndAddCardToGalery(newCard)
+  createAndAddCardToGalery(newCard);
+  cardForm.reset();
   closePopup(cardPopup);
 }
 
@@ -146,7 +147,7 @@ function openPhoto(name, link, alt) {
   photoPopupImg.alt = alt;
   openPopup(photoPopup);
 }
-
+ 
 //лайк
 function likeToggle(evt) {
   evt.currentTarget.classList.toggle('element__button-like_active')

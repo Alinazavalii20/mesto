@@ -18,7 +18,3 @@
 .element__button-like:active{
     background-image: url(../../../image/like__active.svg);
 }
-
-.element__button-like:focus{
-    background-image: url(../../../image/like__active.svg);
-}

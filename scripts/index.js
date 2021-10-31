@@ -1,3 +1,11 @@
+//импорт
+import {Card} from './Card.js'
+import {FormValidator} from './FormValidator.js';
+import {validationConfig} from './FormValidator.js'
+
+//
+export {openPhoto}
+
 //попап редактирования профиля пользователя
 const profilePopup = document.querySelector('.popup_type_profile');
 const profilePopupOpenBtn = document.querySelector('.profile__button-edit');
@@ -25,7 +33,7 @@ const photoPopupTitle = photoPopup.querySelector('.popup__title');
 
 //галерея
 const elementList = document.querySelector('.elements')
-const cardTemplate = document.querySelector('.element-temple')
+//const cardTemplate = document.querySelector('.element-temple')
 
 //все попапы
 const popups = document.querySelectorAll('.popup')
@@ -58,27 +66,7 @@ const initialCards = [
   }
 ];
 
-function createCard(cardData) {
-  const newCard = cardTemplate.content.cloneNode(true);
-  const newCardTitle = newCard.querySelector('.element__title');
-  const newCardImg = newCard.querySelector('.element__image');
-  newCardTitle.textContent = cardData.name;
-  newCardImg.setAttribute('src', cardData.link);
-  newCardImg.setAttribute('alt', cardData.description);
-  newCard.querySelector('.element__button-like').addEventListener('click', likeToggle);
-  newCard.querySelector(".element__button-delet").addEventListener('click', deleteCard);
-  newCardImg.addEventListener("click", () => openPhoto(newCardTitle.textContent, newCardImg.src, newCardImg.alt));
-  return newCard;  
-}
-
-function addCardToGalery(element) {
-  elementList.prepend(element);
-}
-
-function createAndAddCardToGalery(cardData){
-  const newCard = createCard(cardData);
-  addCardToGalery(newCard)
-}
+//--------------------------------------------------------------------------------------
 
 function addCardSubmitHandler(evt){
   evt.preventDefault();
@@ -91,6 +79,22 @@ function addCardSubmitHandler(evt){
   cardForm.reset();
   closePopup(cardPopup);
 }
+
+function createCard(newCard) {
+  const card = new Card(newCard, '.element-temple');
+  const cardElement = card.generateCard();
+  return cardElement;
+}
+
+function createAndAddCardToGalery(newCard) {
+  const cardElement = createCard(newCard);
+  elementList.prepend(cardElement);
+}
+
+//function createAndAddCardToGalery(cardElement){
+ // const newCard = createCard(cardElement);
+ // addCardToGalery(newCard)
+//}
 
 
 // Закрытие попапа (Esc)
@@ -146,17 +150,6 @@ function openPhoto(name, link, alt) {
   photoPopupImg.src = link;
   photoPopupImg.alt = alt;
   openPopup(photoPopup);
-}
- 
-//лайк
-function likeToggle(evt) {
-  evt.currentTarget.classList.toggle('element__button-like_active')
-}
-
-//удаление
-function deleteCard(evt) {
-  const deletedCard = evt.currentTarget.closest(".element");
-  deletedCard.remove();
 }
 
 

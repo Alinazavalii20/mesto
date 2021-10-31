@@ -1,10 +1,9 @@
 //импорт
-import {Card} from './Card.js'
-import {FormValidator} from './FormValidator.js';
-import {validationConfig} from './FormValidator.js'
+import {Card} from './Card.js';
+import { FormValidator, validationConfig } from './FormValidator.js';
 
-//
-export {openPhoto}
+//экспорт
+export {openPhoto};
 
 //попап редактирования профиля пользователя
 const profilePopup = document.querySelector('.popup_type_profile');
@@ -91,12 +90,6 @@ function createAndAddCardToGalery(newCard) {
   elementList.prepend(cardElement);
 }
 
-//function createAndAddCardToGalery(cardElement){
- // const newCard = createCard(cardElement);
- // addCardToGalery(newCard)
-//}
-
-
 // Закрытие попапа (Esc)
 function closePopupEsc(evt){
   if (evt.key === 'Escape'){
@@ -104,7 +97,6 @@ function closePopupEsc(evt){
     closePopup(currentPopup);
   }
 }
-
 
 // Открытие попапа 
 function openPopup(popupType) {
@@ -127,14 +119,12 @@ popups.forEach((popup) => {
   })
 })
 
-
 //открытие редактора профиля
 function openProfilePopup(){
   nameInput.value = nameProfile.textContent;
   jobInput.value = subtitleProfile.textContent;
   openPopup(profilePopup)
 }
-
 
 //Сохранение в форме редактирования
 function profileSubmitHandler(evt) {
@@ -152,16 +142,22 @@ function openPhoto(name, link, alt) {
   openPopup(photoPopup);
 }
 
+//-------------------------------------------------------------------------------
 
 //заполнение карточками
 initialCards.forEach(createAndAddCardToGalery);
+
+//валидатор для каждой формы
+const profileFormValidator = new FormValidator(validationConfig, profileForm);
+profileFormValidator.enableValidation();
+const cardFormValidator = new FormValidator(validationConfig, cardForm);
+cardFormValidator.enableValidation();
 
 //клики
 //редактор
 profilePopupOpenBtn.addEventListener('click', () => openProfilePopup(profilePopup))
 profilePopupCloseBtn.addEventListener('click', () => closePopup(profilePopup));
 profileForm.addEventListener('submit', profileSubmitHandler);
-
 
 //сохранение
 cardPopupOpenBtn.addEventListener('click', () => openPopup(cardPopup));
@@ -170,4 +166,3 @@ cardForm.addEventListener('submit', addCardSubmitHandler);
 
 //закрытие попапа с фото
 photoPopupCloseBtn.addEventListener("click", () => closePopup(photoPopup));
-

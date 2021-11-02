@@ -8,7 +8,7 @@ export class Card {
       this._description = `Фотография места. ${data.name}`;
       this._cardSelector = cardSelector;
     }
-    // Получение шаблона разметки для новой карточки
+    // Получение шаблона для новой карточки
     _getTemplate() {
       const cardElement = document
         .querySelector(this._cardSelector)
@@ -18,7 +18,7 @@ export class Card {
         
       return cardElement;
     }
-    // Наполнение данными шаблона разметки карточки
+    // Наполнение данными. шаблон разметки карточки
     generateCard() {
       this._cardElement = this._getTemplate();
       this._cardNameElement = this._cardElement.querySelector('.element__title');
@@ -43,7 +43,7 @@ export class Card {
         openPhoto(this._name, this._link, this._description);
       });
     }
-    // Переключение лайка в карточке
+    // Переключение лайка
     _likeToggle() {
       this._cardLikeElement.classList.toggle('element__button-like_active');
     }

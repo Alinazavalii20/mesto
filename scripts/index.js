@@ -37,33 +37,9 @@ const elementList = document.querySelector('.elements')
 //все попапы
 const popups = document.querySelectorAll('.popup')
 
-//загрузка на странице. массив
-const initialCards = [
-  {
-    name: 'Архыз',
-    link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/arkhyz.jpg'
-  },
-  {
-    name: 'Челябинская область',
-    link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/chelyabinsk-oblast.jpg'
-  },
-  {
-    name: 'Иваново',
-    link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/ivanovo.jpg'
-  },
-  {
-    name: 'Камчатка',
-    link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/kamchatka.jpg'
-  },
-  {
-    name: 'Холмогорский район',
-    link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/kholmogorsky-rayon.jpg'
-  },
-  {
-    name: 'Байкал',
-    link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/baikal.jpg'
-  }
-];
+//загрузка на странице
+
+import {initialCards} from './data.js'
 
 //--------------------------------------------------------------------------------------
 
@@ -127,7 +103,7 @@ function openProfilePopup(){
 }
 
 //Сохранение в форме редактирования
-function profileSubmitHandler(evt) {
+function handlerSubmitProfile(evt) {
   evt.preventDefault(); 
   nameProfile.textContent = nameInput.value;
   subtitleProfile.textContent = jobInput.value;
@@ -157,7 +133,7 @@ cardFormValidator.enableValidation();
 //редактор
 profilePopupOpenBtn.addEventListener('click', () => openProfilePopup(profilePopup))
 profilePopupCloseBtn.addEventListener('click', () => closePopup(profilePopup));
-profileForm.addEventListener('submit', profileSubmitHandler);
+profileForm.addEventListener('submit', handlerSubmitProfile);
 
 //сохранение
 cardPopupOpenBtn.addEventListener('click', () => openPopup(cardPopup));

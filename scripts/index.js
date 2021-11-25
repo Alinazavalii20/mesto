@@ -1,7 +1,7 @@
 //импорт
-import {Card} from '../components/Card.js';
-import { FormValidator, validationConfig } from '../components/FormValidator.js';
 
+import { FormValidator, validationConfig } from '../components/FormValidator.js';
+import Card from '../components/Card.js';
 import {
   initialCards,
   cardsContainerSelector,
@@ -36,18 +36,16 @@ const cardFormElement = document
 //--------------------------------------------------------------------------------------
 
 
-
 const cardSection = new Section(
   {
     initialCards,
-    // передаем метод отрисовки отдельной карточки
     renderer: data => {
       const card = new Card(
         {
           data,
           handleCardClick: (photoTitle, photoLink, photoDescription) => {
             popupWithImage.setEventListeners();
-            popupWithImage.open(photoTitle, photoLink, photoDescription);
+            popupWithImage.open(photoCaption, photoLink, photoDescription);
           },
         },
         cardTemplateSelector
@@ -59,11 +57,13 @@ const cardSection = new Section(
   cardsContainerSelector
 );
 
-//заполнение карточками
+// Заполняем галерею карточками
 cardSection.renderItems();
 
+// экземпляр класса для попапа создания карточки
 const popupWithCardForm = new PopupWithForm({
   popupSelector: cardPopupSelector,
+  // передаем обработчик события отправки формы создания карточки
   formSubmitHandler: inputValues => {
     cardSection._items = [inputValues];
     cardSection.renderItems();
@@ -80,26 +80,25 @@ const popupWithProfileForm = new PopupWithForm({
   },
 });
 
-//экземпляр класса для попапа просмотра фотографии
+// экземпляр класса для попапа просмотра фотографии
 const popupWithImage = new PopupWithImage(photoPopupSelector);
 
 // Создаём экземпляр класса с данными о пользователе
 const userInfo = new UserInfo(userNameElementSelector, userDescriptionSelector);
 
-//экземпляры класса валидаторов
 const profileFormValidator = new FormValidator(validationConfig, profileFormElement);
 profileFormValidator.enableValidation();
 const cardFormValidator = new FormValidator(validationConfig, cardFormElement);
 cardFormValidator.enableValidation();
 
-// открытие попапа редактирования профиля
+//  открытие попапа редактирования профиля
 profilePopupOpenBtn.addEventListener('click', () => {
   profileFormValidator.resetValidation();
   popupWithProfileForm.setInputValues(userInfo.getUserInfo()); // передаем поля профиля в инпуты формы
   popupWithProfileForm.open();
 });
 
-// открытие попапа добавления новой карточки
+//открытие попапа добавления новой карточки
 cardPopupOpenBtn.addEventListener('click', () => {
   cardFormValidator.resetValidation();
   popupWithCardForm.open();

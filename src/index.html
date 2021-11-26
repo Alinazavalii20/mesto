@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+ <!---- <link rel="stylesheet" href="pages/index.css">-->
+  <title>Mesto</title>
+</head>
+
+<body>
+  <div class="page">
+    <header class="header">
+      <img class="logo header__logo" src="./image/logo.svg" alt="Город.Россия">
+    </header>
+
+    <main class="content">
+      <section class="profile">
+        <img src="./image/profile.png" alt="Жак-Ив Кусто" class="profile__avatar">
+        <div class="profile__intro">
+          <h1 class="profile__name">Жак-Ив Кусто</h1>
+          <p class="profile__subtitle">Исследователь океана</p>
+          <button type="button" class="button profile__button-edit"></button>
+        </div>
+        <button class="button profile__button-plus" type="button"></button>
+
+      </section>
+
+      <section class="elements">
+        
+      </section>
+    </main>
+
+    <footer class="footer">
+      <p class="footer__subtitle">&copy;&nbsp;2021 Mesto Russia</p>
+    </footer>
+
+    <section class="popup popup_type_profile">
+      <div class="popup__container">
+        <button class="popup__close"></button>
+        <form class="popup__form" name="form">
+        <div class="popup__content">
+          <h2 class="popup__edit">Редактировать профиль</h2>
+          <div class="popup__profile">
+            <input type="text" name="username" id="username-input" minlength="2" maxlength="40" required
+            class="popup__input popup__input_type_username" 
+            placeholder="Ваше имя">
+            <span class="popup__input-error username-input-error"></span>
+            <input type="text" name="userjob" id="userjob-input" minlength="2" maxlength="200" required
+            class="popup__input popup__input_type_userjob" 
+            placeholder="Ваша пофессия">
+            <span class="popup__input-error userjob-input-error"></span>
+          </div>
+          <button class="popup__save" type="submit" name="submit">
+            Сохранить
+          </button>
+        </div>
+      </form>
+      </div>
+    </section>
+
+    <section class="popup popup_type_card">
+      <div class="popup__container">
+        <button class="popup__close"></button>
+        <form class="popup__form" name="form">
+        <div class="popup__content">
+          <h2 class="popup__edit">Новое место</h2>
+          <div class="popup__profile">
+            <input type="text" name="name" minlength="2" maxlength="30" id="place-input" required
+            class="popup__input popup__input_type_place" 
+            placeholder="Название">
+            <span class="popup__input-error place-input-error"></span>
+            <input type="url" name="link" id="link-input" required
+            class="popup__input popup__input_type_link" 
+            placeholder="Ссылка на картинку">
+            <span class="popup__input-error link-input-error"></span>
+          </div>
+          <button class="popup__save" type="submit" name="submit">
+            Сохранить
+          </button>
+        </div>
+      </form>
+      </div>
+    </section>
+
+    <section class="popup popup_type_image">
+      <div class="popup__container popup__container_type_img">
+        <button type="button" class="popup__close"></button>
+        <figure class="figure">
+          <img src="#" class="popup__image" alt="">
+          <figcaption><p class="popup__title"></p></figcaption>
+        </figure>
+      </div>
+    </section>
+  </div>
+
+    <template class="element-temple">
+     <div class="element">
+      <img src="#" class="element__image">
+      <button type="button" name="image" class="button element__button-delet"></button>
+      <h2 class="element__title"></h2>
+      <button type="button" name="image" class="button element__button-like"></button>        
+    </div>
+  </template>
+
+</body>
+</html>

@@ -15,5 +15,3 @@
 
 **Используются в создании программы:** HTML,CSS и JavaScript
 
-
-**Ссылка на мой проект** https://alinazavalii20.github.io/mesto/

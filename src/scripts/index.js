@@ -1,8 +1,8 @@
 //импорт
 
-import { FormValidator, validationConfig } from '../components/FormValidator.js';
+import { FormValidator, validationConfig } from '../components/FormValidator.js'
 import Card from '../components/Card.js';
-
+import section from '../components/section.js';
 import '../pages/index.css';
 
 import {
@@ -15,7 +15,7 @@ import {
   cardTemplateSelector,
   cardPopupSelector,
 } from '../utils/constants.js'
-import Section from '../components/section.js';
+
 import PopupWithForm from '../components/PopupWithForm.js';
 import PopupWithImage from '../components/PopupWithImage.js';
 
@@ -38,41 +38,44 @@ const cardFormElement = document
 
 //--------------------------------------------------------------------------------------
 
+// Добавление карточки с фотографией в список
+function createCard(data) {
+  const card = new Card(
+    {
+      data,
+      handleCardClick: (photoTitle, photoLink, photoDescription) => {
+       popupWithImage.open(photoTitle, photoLink, photoDescription);
+      },
+    },
+    cardTemplateSelector
+  );
+  return card.generateCard();
 
-const cardSection = new Section(
+}
+
+const cardSection = new section(
   {
-    initialCards,
     renderer: data => {
-      const card = new Card(
-        {
-          data,
-          handleCardClick: (photoTitle, photoLink, photoDescription) => {
-            popupWithImage.setEventListeners();
-            popupWithImage.open(photoTitle, photoLink, photoDescription);
-          },
-        },
-        cardTemplateSelector
-      );
-      const cardElement = card.generateCard();
-      return cardElement;
+      const cardElement = createCard(data);
+      return cardSection.addItem(cardElement);
     },
   },
   cardsContainerSelector
 );
 
-// Заполняем галерею карточками
-cardSection.renderItems();
+cardSection.renderItems(initialCards);
 
 // экземпляр класса для попапа создания карточки
 const popupWithCardForm = new PopupWithForm({
   popupSelector: cardPopupSelector,
-  // передаем обработчик события отправки формы создания карточки
   formSubmitHandler: inputValues => {
-    cardSection._items = [inputValues];
-    cardSection.renderItems();
+    const cardElement = createCard(inputValues)
+    cardSection.addItem(cardElement)
     popupWithCardForm.close();
   },
 });
+
+popupWithCardForm.setEventListeners();
 
 // экземпляр класса для попапа профиля пользователя
 const popupWithProfileForm = new PopupWithForm({
@@ -82,10 +85,11 @@ const popupWithProfileForm = new PopupWithForm({
     popupWithProfileForm.close();
   },
 });
+popupWithProfileForm.setEventListeners();
 
 // экземпляр класса для попапа просмотра фотографии
 const popupWithImage = new PopupWithImage(photoPopupSelector);
-
+popupWithImage.setEventListeners();
 // Создаём экземпляр класса с данными о пользователе
 const userInfo = new UserInfo(userNameElementSelector, userDescriptionSelector);
 

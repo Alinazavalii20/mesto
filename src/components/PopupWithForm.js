@@ -11,8 +11,10 @@ export default class PopupWithForm extends Popup {
     setInputValues({ userName, userDescription }) {
       this._userNameInputElement = this._formElement.querySelector('.popup__input_type_username');
       this._userDescriptionInputElement = this._formElement.querySelector('.popup__input_type_userjob');
+      this._userAvatarInputElement = this._formElement.querySelector('.popup__input_type_avatar');
       this._userNameInputElement.value = userName;
       this._userDescriptionInputElement.value = userDescription;
+      //this._userAvatarInputElement.value = userAvatar;
     }
     _getInputValues() {
       const inputValues = {};

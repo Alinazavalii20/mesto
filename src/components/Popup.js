@@ -7,6 +7,7 @@ export default class Popup{
   }
 
   open(){
+      this.setEventListeners();
       this._popupElement.classList.add('popup_opened');
   }
 
@@ -33,5 +34,12 @@ export default class Popup{
   setEventListeners(){
       document.addEventListener('keydown', this._handleEscClose);
       this._popupElement.addEventListener('mousedown', this._handleMouseClose);
+  }
+
+  // проверка на наличие кнопки сохранения
+  changeBtnText(btnText) {
+    if (this._saveBtnElement) {
+      this._saveBtnElement.textContent = btnText;
+    }
   }
 }

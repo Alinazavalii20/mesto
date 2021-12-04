@@ -1,3 +1,4 @@
+
 //карточки
 export const initialCards = [
     {
@@ -48,9 +49,16 @@ export const cardPopupSelector = '.popup_type_card';
 //  попап профиля
 export const profilePopupSelector = '.popup_type_profile';
 
+//  попапа аватарки
+export const avatarPopupSelector = '.popup_type_avatar';
+
 // просмотр фото
 export const photoPopupSelector = '.popup_type_image';
+
+//  попапа подтверждения удаления
+export const popupCardDelete = '.popup_type_delete';
 
 // профиль
 export const userNameElementSelector = '.profile__name';
 export const userDescriptionSelector = '.profile__subtitle';
+export const userAvatarSelector = '.profile__avatar';

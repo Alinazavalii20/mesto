@@ -16,10 +16,13 @@
 
     <main class="content">
       <section class="profile">
-        <img src="./image/profile.png" alt="Жак-Ив Кусто" class="profile__avatar">
+        <div class="profile__avatar-container">
+          <img src="./image/profile.png" alt="Жак-Ив Кусто" class="profile__avatar">
+          <div class="profile__avatar-overlay"></div>
+        </div>
         <div class="profile__intro">
-          <h1 class="profile__name">Жак-Ив Кусто</h1>
-          <p class="profile__subtitle">Исследователь океана</p>
+          <h1 class="profile__name"></h1>
+          <p class="profile__subtitle"></p>
           <button type="button" class="button profile__button-edit"></button>
         </div>
         <button class="button profile__button-plus" type="button"></button>
@@ -35,6 +38,26 @@
       <p class="footer__subtitle">&copy;&nbsp;2021 Mesto Russia</p>
     </footer>
 
+
+    <section class="popup popup_type_avatar">
+      <div class="popup__container">
+        <button class="popup__close"></button>
+        <form class="popup__form" name="form">
+        <h2 class="popup__edit">Обновить аватар</h2>
+        <div class="popup__profile">
+          <input type="url" name="avatar"
+            id="avatarlink-input"
+            class="popup__input popup__input_type_avatar"
+            placeholder="Ссылка на фото" required >
+            <span class="popup__input-error link-input-error"></span>
+        </div>
+          <button class="popup__save" type="submit" name="submit">
+            Сохранить
+          </button>
+        </form>
+      </div>
+      </section>
+
     <section class="popup popup_type_profile">
       <div class="popup__container">
         <button class="popup__close"></button>
@@ -42,11 +65,11 @@
         <div class="popup__content">
           <h2 class="popup__edit">Редактировать профиль</h2>
           <div class="popup__profile">
-            <input type="text" name="username" id="username-input" minlength="2" maxlength="40" required
+            <input type="text" name="name" id="username-input" minlength="2" maxlength="40" required
             class="popup__input popup__input_type_username" 
             placeholder="Ваше имя">
             <span class="popup__input-error username-input-error"></span>
-            <input type="text" name="userjob" id="userjob-input" minlength="2" maxlength="200" required
+            <input type="text" name="about" id="userjob-input" minlength="2" maxlength="200" required
             class="popup__input popup__input_type_userjob" 
             placeholder="Ваша пофессия">
             <span class="popup__input-error userjob-input-error"></span>
@@ -94,12 +117,27 @@
     </section>
   </div>
 
+  <div class="popup popup_type_delete">
+    <div class="popup__container">
+      <h2 class="popup__title popup__title_type_confirm">Вы уверены?</h2>
+      <button type="button" class="popup__close button"></button>
+      <div class="popup__form popup__form_type_confirm">
+        <button type="button" class="popup__save-button popup__save-button_type_confirm">
+          Да
+        </button>
+      </div>
+    </div>
+  </div>
+
     <template class="element-temple">
      <div class="element">
       <img src="#" class="element__image">
       <button type="button" name="image" class="button element__button-delet"></button>
       <h2 class="element__title"></h2>
-      <button type="button" name="image" class="button element__button-like"></button>        
+       <div>
+        <button type="button" name="image" class="button element__button-like"></button>
+        <span class="element__like-number"></span> 
+      </div>       
     </div>
   </template>
 <!--<script src="scripts/index.js"></script>-->

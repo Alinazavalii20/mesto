@@ -9,7 +9,7 @@ export default class Api {
     }
 
     //получение карточек
-    getCards(){
+    getAllCards(){
         return fetch(`${this._url}/cards`,{
            method: 'GET',
            headers: this._headers,
@@ -46,35 +46,40 @@ export default class Api {
     
 
     //Редактирование профиля
-    editUser(){
+    editUser(data){
         return fetch(`${this._url}/users/me`,{
-            method: 'PATCH',
-            headers: this._headers,
-         })
+          method: 'PATCH',
+          headers: this._headers,
+          body: JSON.stringify(data),
+        })
            .then(onResponce)
     }
-
-    //Добавление новой карточки
-    postCard(){
-        return fetch(`${this._url}/cards`,{
-            method: 'POST',
-            headers: this._headers,
-         })
-           .then(onResponce)
-    }
-
 
     //Обновление аватара пользователя
-    updateAvatar(){
-        return fetch(`${this._url}/users/me/avatar`,{
-            method: 'PATCH',
-            headers: this._headers,
-         })
-           .then(onResponce) 
+    updateAvatar({avatar}){
+      return fetch(`${this._url}/users/me/avatar`, {
+        method: 'PATCH',
+        headers: this._headers,
+        body: JSON.stringify({avatar})
+      })
+         .then(onResponce) 
+  }
+
+    //Добавление новой карточки
+    postCard(data){
+        return fetch(`${this._url}/cards`, {
+          method: 'POST',
+          headers: this._headers,
+          body: JSON.stringify(data)
+        })
+           .then(onResponce)
     }
 
+
+    
+
     deleteCard(cardId){
-        return fetch(`${this._url}/cards/${cardId._id}`,{
+        return fetch(`${this._url}/cards/${cardId}`,{
             method: 'DELETE',
             headers: this._headers,
          })

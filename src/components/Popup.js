@@ -36,10 +36,4 @@ export default class Popup{
       this._popupElement.addEventListener('mousedown', this._handleMouseClose);
   }
 
-  // проверка на наличие кнопки сохранения
-  changeBtnText(btnText) {
-    if (this._saveBtnElement) {
-      this._saveBtnElement.textContent = btnText;
-    }
-  }
 }

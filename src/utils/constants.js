@@ -1,4 +1,3 @@
-
 //карточки
 export const initialCards = [
     {
@@ -39,7 +38,7 @@ export const validationConfig = {
 
 // контейнер для добавления новых карточек
 export const cardsContainerSelector = '.elements';
-
+ 
 // шаблон карточки
 export const cardTemplateSelector = '.element-temple';
 
@@ -58,7 +57,10 @@ export const photoPopupSelector = '.popup_type_image';
 //  попапа подтверждения удаления
 export const popupCardDelete = '.popup_type_delete';
 
+export const popupName = document.querySelector('.popup__input_type_username');
+export const popupAbout = document.querySelector('.popup__input_type_userjob');
+export const popupAvatar = document.querySelector('.popup__input_type_avatar');
 // профиль
-export const userNameElementSelector = '.profile__name';
+export const userNameSelector = '.profile__name';
 export const userDescriptionSelector = '.profile__subtitle';
 export const userAvatarSelector = '.profile__avatar';

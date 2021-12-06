@@ -12,7 +12,7 @@ export default class FormValidator {
     this._inputList = Array.from(formElement.querySelectorAll(validationConfig.inputSelector));
     this._submitButton = formElement.querySelector(validationConfig.submitButtonSelector);
   }
-  // Сброс формы ввода (стилей инпутов, сообщений об ошибке, состояния кнопки)
+  // Сброс формы ввода
   resetValidation() {
     this._toggleButtonState();
     this._inputList.forEach(input => {

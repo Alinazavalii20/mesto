@@ -1,7 +1,7 @@
 //ИМПОРТЫ
 import FormValidator from '../components/FormValidator.js'
 import Card from '../components/Card.js';
-import section from '../components/section.js';
+import Section from '../components/Section.js';
 import Api from '../components/Api.js';
 import './index.css';
 
@@ -79,12 +79,16 @@ const dataProfile = new UserInfo(userNameSelector, userDescriptionSelector, user
 const editProfile = new PopupWithForm({
   popupSelector : profilePopupSelector,
   formSubmitCallback : (data) => {
+    editProfile.renderLoading(true)
     api.editUser(data)
     .then((data) => {
       dataProfile.setUserInfo(data)
       editProfile.close()
     })
     .catch(err => console.log(err))
+    .finally(() => {
+      editProfile.renderLoading(false)
+    })
   },
   })
   editProfile.setEventListeners()
@@ -92,12 +96,16 @@ const editProfile = new PopupWithForm({
 const editAvatar = new PopupWithForm({
   popupSelector : avatarPopupSelector,
   formSubmitCallback : (data) => {
+    editAvatar.renderLoading(true)
     api.updateAvatar(data)
       .then((data) => {
         dataProfile.setUserInfo(data);
         editAvatar.close();
       })
       .catch(err => console.log(err))
+      .finally(() => {
+        editAvatar.renderLoading(false)
+      })
   },
 })
 editAvatar.setEventListeners()
@@ -106,7 +114,6 @@ const popupAvatarEdit = () => {
   editAvatar.open();
   const dataAvatarProfile = dataProfile.getUserAvatar()
   validatorAddAvatar.resetValidation();
-  validatorAddAvatar._toggleButtonState();
   popupAvatar.value = dataAvatarProfile.userAvatar
 }
 
@@ -116,7 +123,6 @@ const openPopupEdit = () => {
   editProfile.open()
   const dataEditProfile = dataProfile.getUserInfo()
   validatorEditProfile.resetValidation();
-  validatorEditProfile._toggleButtonState();
   popupName.value = dataEditProfile.userName
   popupAbout.value = dataEditProfile.userDescription
   
@@ -125,7 +131,7 @@ const openPopupEdit = () => {
 openPopupProfileBtn.addEventListener('click', openPopupEdit)
 
 // Код для карточек
-const cardSection  = new section({
+const cardSection  = new Section({
   initialCards,
   renderer: (dataCards) => {
   const element = createCard(dataCards)
@@ -173,12 +179,16 @@ cardDelete.setEventListeners()
 const cardItem = new PopupWithForm({
   popupSelector : cardPopupSelector,
   formSubmitCallback: (dataForm) => {
+    cardItem.renderLoading(true)
       api.postCard(dataForm)
       .then((res => {
         const addCard = createCard(res);
         cardSection.addItem(addCard);
         cardItem.close()}))
         .catch(err => console.log(err))
+        .finally(() => {
+          cardItem.renderLoading(false)
+        })
    },
 })
 cardItem.setEventListeners()
@@ -186,7 +196,6 @@ cardItem.setEventListeners()
 openPopupCardBtn.addEventListener('click', () => {
   cardItem.open();
   validatorAddCard.resetValidation()
-  validatorAddCard._toggleButtonState();
 })
 
 const enableValidation = () => {
